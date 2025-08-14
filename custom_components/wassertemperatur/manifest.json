@@ -2,6 +2,7 @@
   "domain": "wassertemperatur",
   "name": "Wassertemperatur",
   "documentation": "https://github.com/asmaps/HA-Wassertemperatur",
+  "issue_tracker": "https://github.com/asmaps/HA-Wassertemperatur/issues",
   "version": "0.1.0",
   "codeowners": ["@asmaps"],
   "config_flow": true,
