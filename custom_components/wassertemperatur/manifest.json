@@ -1,9 +1,9 @@
 {
   "domain": "wassertemperatur",
   "name": "Wassertemperatur",
-  "documentation": "https://github.com/yourname/HA-Wassertemperatur",
+  "documentation": "https://github.com/asmaps/HA-Wassertemperatur",
   "version": "0.1.0",
-  "codeowners": ["@yourname"],
+  "codeowners": ["@asmaps"],
   "config_flow": true,
   "iot_class": "cloud_polling",
   "requirements": [],

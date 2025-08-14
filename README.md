@@ -13,7 +13,7 @@ This repository provides a HACS-installable custom integration. During setup, yo
 ## Installation (via HACS)
 1. In Home Assistant, install HACS if you haven’t already: https://hacs.xyz/
 2. In HACS → Integrations, open the three-dot menu → Custom repositories.
-3. Add this repository URL, select category "Integration", and click Add.
+3. Add this repository URL `https://github.com/asmaps/HA-Wassertemperatur`, select category "Integration", and click Add.
 4. Find "Wassertemperatur" in HACS → Integrations and click Install.
 5. Restart Home Assistant when prompted.
 
@@ -48,4 +48,4 @@ Copy the `custom_components/wassertemperatur` folder into your Home Assistant `c
   - `translations/` and `strings.json`: UI strings and error messages.
 
 ## License
-MIT (or your preferred license)
+MIT
