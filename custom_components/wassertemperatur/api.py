@@ -4,6 +4,7 @@ import asyncio
 import re
 from typing import Any, Optional
 from urllib.parse import urlparse
+from html import unescape
 
 from aiohttp import ClientSession, ClientTimeout
 
@@ -31,10 +32,14 @@ class WassertemperaturClient:
     def _parse_lake_name(html: str, url: str) -> str:
         m = TITLE_REGEX.search(html)
         if m:
-            title = re.sub(r"\s+", " ", m.group(1)).strip()
-            # Titles often contain separators like " - Wassertemperatur"; keep first part
-            if " - " in title:
-                return title.split(" - ")[0].strip()
+            raw_title = m.group(1)
+            # Unescape HTML entities and normalize whitespace
+            title = unescape(re.sub(r"\s+", " ", raw_title)).strip()
+            # Titles often contain separators; keep only the first segment
+            for sep in (" - ", " — ", " – ", " | ", ":"):
+                if sep in title:
+                    title = title.split(sep)[0].strip()
+                    break
             return title
         # Fallback to URL path
         parsed = urlparse(url)

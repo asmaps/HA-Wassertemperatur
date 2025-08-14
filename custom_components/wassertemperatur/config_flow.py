@@ -42,22 +42,19 @@ class WassertemperaturConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 except Exception:
                     errors["base"] = "cannot_connect"
                 else:
-                    if data.get("temperature_c") is None:
-                        errors["base"] = "no_temperature"
-                    else:
-                        # Prevent duplicates
-                        unique_id = data.get("lake_id") or url
-                        await self.async_set_unique_id(unique_id)
-                        self._abort_if_unique_id_configured()
-                        title = data.get("lake_name") or unique_id
-                        return self.async_create_entry(
-                            title=title,
-                            data={
-                                CONF_LAKE_URL: data["lake_url"],
-                                CONF_LAKE_NAME: data["lake_name"],
-                                CONF_LAKE_ID: data["lake_id"],
-                            },
-                        )
+                    # Proceed even if temperature is currently unavailable (e.g., "-°C")
+                    unique_id = data.get("lake_id") or url
+                    await self.async_set_unique_id(unique_id)
+                    self._abort_if_unique_id_configured()
+                    title = data.get("lake_name") or unique_id
+                    return self.async_create_entry(
+                        title=title,
+                        data={
+                            CONF_LAKE_URL: data["lake_url"],
+                            CONF_LAKE_NAME: data["lake_name"],
+                            CONF_LAKE_ID: data["lake_id"],
+                        },
+                    )
 
         data_schema = vol.Schema({vol.Required(CONF_LAKE_URL): str})
         return self.async_show_form(step_id="user", data_schema=data_schema, errors=errors)
@@ -89,10 +86,8 @@ class WassertemperaturOptionsFlow(config_entries.OptionsFlow):
                 except Exception:
                     errors["base"] = "cannot_connect"
                 else:
-                    if data.get("temperature_c") is None:
-                        errors["base"] = "no_temperature"
-                    else:
-                        return self.async_create_entry(title="", data={CONF_LAKE_URL: url})
+                    # Allow URL change even if current temperature is unavailable
+                    return self.async_create_entry(title="", data={CONF_LAKE_URL: url})
 
         default = self._entry.data.get(CONF_LAKE_URL) or self._entry.options.get(CONF_LAKE_URL) or ""
         schema = vol.Schema({vol.Required(CONF_LAKE_URL, default=default): str})
