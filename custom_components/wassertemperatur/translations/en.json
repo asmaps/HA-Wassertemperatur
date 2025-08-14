@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wassertemperatur",
+        "description": "Enter the lake URL from wassertemperatur.org to track its water temperature.",
+        "data": {
+          "lake_url": "Lake URL"
+        }
+      }
+    },
+    "error": {
+      "invalid_url": "Please enter a valid wassertemperatur.org URL.",
+      "cannot_connect": "Could not connect to wassertemperatur.org.",
+      "no_temperature": "No temperature found on this page."
+    },
+    "abort": {
+      "already_configured": "This lake is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wassertemperatur Options",
+        "description": "Change the lake URL.",
+        "data": {
+          "lake_url": "Lake URL"
+        }
+      }
+    }
+  }
+}

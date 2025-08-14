@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wassertemperatur",
+        "description": "Gib die See-URL von wassertemperatur.org ein, um die Wassertemperatur zu verfolgen.",
+        "data": {
+          "lake_url": "See-URL"
+        }
+      }
+    },
+    "error": {
+      "invalid_url": "Bitte eine gültige wassertemperatur.org-URL eingeben.",
+      "cannot_connect": "Verbindung zu wassertemperatur.org fehlgeschlagen.",
+      "no_temperature": "Auf dieser Seite wurde keine Temperatur gefunden."
+    },
+    "abort": {
+      "already_configured": "Dieser See ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wassertemperatur Optionen",
+        "description": "See-URL ändern.",
+        "data": {
+          "lake_url": "See-URL"
+        }
+      }
+    }
+  }
+}

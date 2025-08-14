@@ -1,0 +1,12 @@
+{
+  "domain": "wassertemperatur",
+  "name": "Wassertemperatur",
+  "documentation": "https://github.com/yourname/HA-Wassertemperatur",
+  "version": "0.1.0",
+  "codeowners": ["@yourname"],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "integration_type": "hub",
+  "loggers": ["custom_components.wassertemperatur"]
+}
