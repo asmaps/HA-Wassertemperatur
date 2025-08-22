@@ -1,5 +1,5 @@
 {
-  "domain": "wassertemperatur",
+  "domain": "wassertemperatur.org",
   "name": "Wassertemperatur",
   "documentation": "https://github.com/asmaps/HA-Wassertemperatur",
   "issue_tracker": "https://github.com/asmaps/HA-Wassertemperatur/issues",
